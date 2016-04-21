@@ -22,6 +22,7 @@ import (
 	_ "github.com/influxdata/telegraf/plugins/inputs/ipmi_sensor"
 	_ "github.com/influxdata/telegraf/plugins/inputs/jolokia"
 	_ "github.com/influxdata/telegraf/plugins/inputs/kafka_consumer"
+	_ "github.com/influxdata/telegraf/plugins/inputs/lambda"
 	_ "github.com/influxdata/telegraf/plugins/inputs/leofs"
 	_ "github.com/influxdata/telegraf/plugins/inputs/lustre2"
 	_ "github.com/influxdata/telegraf/plugins/inputs/mailchimp"

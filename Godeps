@@ -15,6 +15,7 @@ github.com/docker/go-units 5d2041e26a699eaca682e2ea41c8f891e1060444
 github.com/eapache/go-resiliency b86b1ec0dd4209a588dc1285cdd471e73525c0b3
 github.com/eapache/queue ded5959c0d4e360646dc9e9908cff48666781367
 github.com/eclipse/paho.mqtt.golang 0f7a459f04f13a41b7ed752d47944528d4bf9a86
+github.com/go-ini/ini afbd495e5aaea13597b5e14fe514ddeaa4d76fc3
 github.com/go-sql-driver/mysql 1fca743146605a172a266e1654e01e5cd5669bee
 github.com/gobwas/glob d877f6352135181470c40c73ebb81aefa22115fa
 github.com/golang/protobuf 552c7b9542c194800fd493123b3798ef0a832032
@@ -26,6 +27,7 @@ github.com/hailocab/go-hostpool e80d13ce29ede4452c43dea11e79b9bc8a15b478
 github.com/influxdata/config b79f6829346b8d6e78ba73544b1e1038f1f1c9da
 github.com/influxdata/influxdb 21db76b3374c733f37ed16ad93f3484020034351
 github.com/influxdata/toml af4df43894b16e3fd2b788d01bd27ad0776ef2d0
+github.com/jmespath/go-jmespath c01cf91b011868172fdcd9f41838e80c9d716264
 github.com/klauspost/crc32 19b0b332c9e4516a6370a0456e6182c3b5036720
 github.com/lib/pq e182dc4027e2ded4b19396d638610f2653295f36
 github.com/matttproud/golang_protobuf_extensions d0c3fe89de86839aecf2e0579c40ba3bb336a453
@@ -35,7 +37,7 @@ github.com/naoina/go-stringutil 6b638e95a32d0c1131db0e7fe83775cbea4a0d0b
 github.com/nats-io/nats b13fc9d12b0b123ebc374e6b808c6228ae4234a3
 github.com/nats-io/nuid 4f84f5f3b2786224e336af2e13dba0a0a80b76fa
 github.com/nsqio/go-nsq 0b80d6f05e15ca1930e0c5e1d540ed627e299980
-github.com/opencontainers/runc 89ab7f2ccc1e45ddf6485eaa802c35dcf321dfc8
+github.com/pmezard/go-difflib 792786c7400a136282c1664665ae0a8db921c6c2
 github.com/prometheus/client_golang 18acf9993a863f4c4b40612e19cdd243e7c86831
 github.com/prometheus/client_model fa8ad6fec33561be4280a8f0514318c79d7f6cb6
 github.com/prometheus/common e8eabff8812b05acf522b45fdcd725a785188e37
@@ -44,6 +46,7 @@ github.com/samuel/go-zookeeper 218e9c81c0dd8b3b18172b2bbfad92cc7d6db55f
 github.com/shirou/gopsutil 1f32ce1bb380845be7f5d174ac641a2c592c0c42
 github.com/soniah/gosnmp b1b4f885b12c5dcbd021c5cee1c904110de6db7d
 github.com/streadway/amqp b4f3ceab0337f013208d31348b578d83c0064744
+github.com/stretchr/objx 1a9d0bb9f541897e62256577b352fdbc1fb4fd94
 github.com/stretchr/testify 1f4a1643a57e798696635ea4c126e9127adb7d3c
 github.com/wvanbergen/kafka 46f9a1cf3f670edec492029fadded9c2d9e18866
 github.com/wvanbergen/kazoo-go 0f768712ae6f76454f987c3356177e138df258f8
