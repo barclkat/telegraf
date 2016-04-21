@@ -15,7 +15,6 @@ import (
 
 //todo: error handling.
 //todo: logging that doesn't break
-var jsonOut []map[string]map[string]interface{}
 
 type Lambda struct {
 	//name of the lambda function, also the metric reported
@@ -50,12 +49,13 @@ func (l *Lambda) Gather(acc telegraf.Accumulator) error {
 
 //sends metrics to telegraf accumulator
 func (l *Lambda) gatherMetrics(acc telegraf.Accumulator) error {
+	var jsonOut []map[string]map[string]interface{}
 
 	response := l.invokeLambdaFunction()
 
 	now := time.Now().UTC()
 
-	l.parseJSON(response)
+	json.Unmarshal(response, &jsonOut);
 
 	fmt.Println("jsonOut:",jsonOut)
 	for _,report := range jsonOut {
@@ -66,19 +66,24 @@ func (l *Lambda) gatherMetrics(acc telegraf.Accumulator) error {
 			converted, ok := value.(string)
 			if ok {
 				stags[key] = converted
-				if(len(fields)>1){
-					fmt.Println("Adding fields and tags to accumulator:",fields,tags,now)
-					//log.Info("Adding fields and tags to accumulator:",fields,tags)
-					acc.AddFields(l.Name,fields,stags,now)
 
-				} else {
-					fmt.Println("Adding field with tags to accumulator:",fields,tags,now)
-					//log.Info("Adding field with tags to accumulator:",fields,tags)
-					acc.Add(l.Name,fields,stags,now)
-				}
 			} else {
 				// Handle error
 			}
+		}
+		nfields := make(map[string]interface{})
+		for key, value := range fields {
+			nfields[key] = value
+		}
+		if(len(fields)>1){
+			fmt.Println("Adding fields:",nfields)
+			//log.Info("Adding fields and tags to accumulator:",fields,tags)
+			acc.AddFields(l.Name,nfields,stags,now)
+
+		} else {
+			fmt.Println("Adding field:",nfields, nfields["count"])
+			//log.Info("Adding field with tags to accumulator:",fields,tags)
+			acc.Add(l.Name,nfields,stags,now)
 		}
 	}
 
@@ -105,13 +110,6 @@ func (l *Lambda) invokeLambdaFunction() (payload []byte){
 	}
 
 	return resp.Payload
-}
-
-
-//parses json format unique to the BaseAmiVersion Lambda function
-func (l *Lambda) parseJSON(b []byte) {
-
-	json.Unmarshal(b, &jsonOut);
 }
 
 func init() {
